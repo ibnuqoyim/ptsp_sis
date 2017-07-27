@@ -1,0 +1,180 @@
+<html>
+<head>
+<base href="<?=base_url();?>" />
+    <link rel="stylesheet" type="text/css" href="css/<?=($this->uri->segment(1)==="order" && $this->uri->segment(2)!="")?"flick/":"";?>screen.css" media="screen, projection" />
+    <link rel="stylesheet" type="text/css" href="css/print.css" media="print" />
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/chalsy.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/chalsy.css" />
+    <link rel="stylesheet" type="text/css" href="css/main.css" />
+    <link rel="stylesheet" type="text/css" href="css/form.css" />
+    <link type="text/css" href="js/calendar/css/smoothness/jquery-ui-1.8.14.custom.css" rel="stylesheet" />	
+    <script type="text/javascript" src="js/calendar/js/jquery-1.5.1.min.js"></script>
+    <script type="text/javascript" src="js/calendar/js/jquery-ui-1.8.14.custom.min.js"></script>
+
+    <script type="text/javascript" src="js/jquery-pdfdoc/jquery-pdfdoc.js"></script>
+    <link href="js/jquery-pdfdoc/jquery-pdfdoc.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="js/tiny_mce/jquery.tinymce.js"></script>
+    <!-- In production, change the content of PDFJS.workerSrc below -->
+    <script type="text/javascript" src="<?php echo base_url().'js/pdfjs/core.js';?>"></script>
+    <script type="text/javascript" src="<?php echo base_url().'js/pdfjs/util.js';?>"></script>
+    <script type="text/javascript" src="<?php echo base_url().'js/pdfjs/api.js';?>"></script>
+    <script type="text/javascript" src="<?php echo base_url().'js/pdfjs/canvas.js';?>"></script>
+    <script type="text/javascript" src="<?php echo base_url().'js/pdfjs/obj.js';?>"></script>
+    <script type="text/javascript" src="<?php echo base_url().'js/pdfjs/function.js';?>"></script>
+    <script type="text/javascript" src="<?php echo base_url().'js/pdfjs/charsets.js';?>"></script>
+    <script type="text/javascript" src="<?php echo base_url().'js/pdfjs/cidmaps.js';?>"></script>
+    <script type="text/javascript" src="<?php echo base_url().'js/pdfjs/colorspace.js';?>"></script>
+    <script type="text/javascript" src="<?php echo base_url().'js/pdfjs/crypto.js';?>"></script>
+    <script type="text/javascript" src="<?php echo base_url().'js/pdfjs/evaluator.js';?>"></script>
+    <script type="text/javascript" src="<?php echo base_url().'js/pdfjs/fonts.js';?>"></script>
+    <script type="text/javascript" src="<?php echo base_url().'js/pdfjs/glyphlist.js';?>"></script>
+    <script type="text/javascript" src="<?php echo base_url().'js/pdfjs/image.js';?>"></script>
+    <script type="text/javascript" src="<?php echo base_url().'js/pdfjs/metrics.js';?>"></script>
+    <script type="text/javascript" src="<?php echo base_url().'js/pdfjs/parser.js';?>"></script>
+    <script type="text/javascript" src="<?php echo base_url().'js/pdfjs/pattern.js';?>"></script>
+    <script type="text/javascript" src="<?php echo base_url().'js/pdfjs/stream.js';?>"></script>
+    <script type="text/javascript" src="<?php echo base_url().'js/pdfjs/worker.js';?>"></script>
+    <script type="text/javascript" src="<?php echo base_url().'js/pdfjs/jpgjs/jpg.js';?>"></script>
+    <script type="text/javascript" src="<?php echo base_url().'js/pdfjs/jpx.js';?>"></script>
+    <script type="text/javascript" src="<?php echo base_url().'js/pdfjs/jbig2.js';?>"></script>
+    <script type="text/javascript" src="<?php echo base_url().'js/pdfjs/src/pdf.js';?>"></script>
+    <script type="text/javascript" src="<?php echo base_url().'js/pdfjs/hello.js';?>"></script>
+    <script type="text/javascript">
+    // Specify the main script used to create a new PDF.JS web worker.
+    // In production, change this to point to the combined `pdf.js` file.
+    PDFJS.workerSrc = "<?php echo base_url().'js/pdfjs/worker_loader.js';?>";
+    </script>
+    
+</head>
+<body>
+<div style="clear:both"></div>
+<div class="title" style="margin-left:10px"><?=$this->judul;?></div>
+<p><?=$this->errormsg;?></p>
+<? 
+	$dat=$this->mUser->getDetail($this->session->userdata('userid'));
+	$result=$this->mRHU->getRHU('',$no_pengujian);///$no_pengujian);
+		
+?>
+
+<?= form_open_multipart(current_url());?>
+	<input type="hidden" name="save" value="1" />
+	<input type="hidden" name="kd_rhu" value="<?=$result->kd_rhu;?>" >
+	<input type="hidden" name="no_order" value="<?=$result->no_order;?>" >
+        <input type="hidden" name="kd_order" value="<?=$result->kd_order;?>" ">
+        <input type="hidden" name="kd_detail_order" value="<?=$result->kd_detail_order;?>" ">
+		
+	<table width="550" border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+	<tr>
+	   <td>
+		<table width="550" border="0" cellspacing="3" cellpadding="0">
+		   <tr>
+			<td width="300" valign="top"  style="padding-left:10px;">Status RHU</td>
+			<td width="20" valign="top" ><div align="center">:</div></td>
+			<td width="300" valign="top" >
+			    <?php if($result->status_rhu<> "disetujui"){?>
+			        <?php $options= array(''=> '','selesai' => 'Selesai'); ?>
+               			<?=form_dropdown('status_rhu',$options, $result->status_rhu,'class="input-option"')?>
+				* <?=form_error('status_rhu')?>
+                            <?}else{
+				echo $result->status_rhu;
+			    }?>
+			</td>
+                   </tr>
+			  
+		   <tr>
+			<td width="300" valign="top"  style="padding-left:10px;">No. Analsis / Pengujian </td>
+			<td width="20" valign="top" ><div align="center">:</div></td>
+			<td width="300" valign="top" ><?=$result->no_pengujian;?>
+				<input type="hidden" name="no_pengujian" value="<?=$result->no_pengujian;?>" />
+			</td>
+		   </tr>
+		  
+		    
+		   <tr>
+			<td width="300" valign="top"  style="padding-left:10px;">Nama Penyelia</td>
+			<td width="20" valign="top" ><div align="center">:</div></td>
+			<td width="413" valign="top" ><?=$result->nm_penyelia." (".$result->nip_penyelia.")";?>
+				<input type="hidden" name="nip_penyelia" value="<?=$result->nip_penyelia;?>" />
+				<input type="hidden" name="nm_penyelia" value="<?=$result->nm_penyelia;?>" />
+			</td>
+                   </tr>
+	           <tr>
+			<td width="300" valign="top"  style="padding-left:10px;">Tanggal dibuat Penyelia</td>
+			<td width="20" valign="top" ><div align="center">:</div></td>
+			<td width="300" valign="top" >
+			   <?php if($result->status_rhu<> "disetujui"){?>
+				<?=form_input(array('name'=>'tgl_dibuat_penyelia','class'=>'input-option',
+				'value'=>$result->tgl_dibuat_penyelia,'id'=>'tgl_dibuat_penyelia','size'=>'10','maxlength'=>'10'));?>
+				<style type="text/css">.embed + img { position: relative; left: -21px; top: -1px; }</style>
+			   <?}else{
+				echo $result->tgl_dibuat_penyelia;
+			    }?>
+			</td>
+		   </tr>
+		   <tr>
+			<td width="300" valign="top"  style="padding-left:10px;">Catatan Penyelia</td>
+			<td width="20" valign="top" ><div align="center">:</div></td>
+			<td width="300" valign="top" >
+			   <?php if($result->status_rhu<> "disetujui"){?>
+			   <?=form_textarea(array('name'=>'comment_penyelia','value'=>$result->comment_penyelia,
+				'class'=>'textarea','rows'=>'3','cols'=>'50'));?>
+			   <?php }else{?>
+			    <?=$result->comment_penyelia;?>
+			   <?}?>
+			</td>
+		   </tr>
+                   <?php if($result->status_rhu== "disetujui"){?>
+		    <tr>
+			<td width="300" valign="top"  style="padding-left:10px;">Nama Manager Teknis</td>
+			<td width="20" valign="top" ><div align="center">:</div></td>
+			<td width="413" valign="top" ><?=$result->nm_manager_teknis." (".$result->nip_manager_teknis.")";?>
+			</td>
+                   </tr>
+	           <tr>
+			<td width="300" valign="top"  style="padding-left:10px;">Tanggal disetujui Manager Teknis</td>
+			<td width="20" valign="top" ><div align="center">:</div></td>
+			<td width="300" valign="top" ><?=$result->tgl_disetujui_manager_teknis;?>
+				
+			</td>
+		   </tr>
+		   <tr>
+			<td width="300" valign="top"  style="padding-left:10px;">Catatan Manager Teknis</td>
+			<td width="20" valign="top" ><div align="center">:</div></td>
+			<td width="300" valign="top" ><?=$result->comment_manager_teknis;?>
+			</td>
+		   </tr>
+                   <?php } ?>   
+		     <tr>
+			<td width="300" valign="top"  style="padding-left:10px;">RHU kerja yang telah diupload</td>
+			<td width="20" valign="top" ><div align="center">:</div></td>
+			<td width="300" valign="top" >
+					<?=($result->file_rhu!="")?"<a href='$result->file_rhu' target='_blank'>".
+					basename($result->file_rhu)."</a>":"-";?>
+				</td>
+		     </tr>
+		     <?php if($result->status_rhu<> "disetujui"){?>
+		     <tr>
+			<td width="300" valign="top"  style="padding-left:10px;">Upload File RHU </td>
+			<td width="20" valign="top" ><div align="center">:</div></td>
+			<td width="300" valign="top" >
+				<input type="file" name="userfile" class="input-option" size="20" />
+			</td>
+		     </tr>
+		     <?php }?>
+		</table>
+	    </td>
+	</tr>
+	<?php if($result->status_rhu<> "disetujui"){?>
+	<tr>
+		<td align="center" style="padding-top:15px">
+			<button type="submit" class="button">Simpan</button>
+		</td>
+	</tr>
+	<?php }?>
+	</table>
+	<!--<canvas id="the-canvas" style="border:1px solid black;"/>-->
+<?=form_close();?>
+<?=$this->javascript;?>
+</body>
+</html>

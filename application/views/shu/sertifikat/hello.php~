@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+
+<head>
+  <!-- In production, only one script (pdf.js) is necessary -->
+  <!-- In production, change the content of PDFJS.workerSrc below -->
+  <script type="text/javascript" src="core.js"></script>
+  <script type="text/javascript" src="util.js"></script>
+  <script type="text/javascript" src="api.js"></script>
+  <script type="text/javascript" src="canvas.js"></script>
+  <script type="text/javascript" src="obj.js"></script>
+  <script type="text/javascript" src="function.js"></script>
+  <script type="text/javascript" src="charsets.js"></script>
+  <script type="text/javascript" src="cidmaps.js"></script>
+  <script type="text/javascript" src="colorspace.js"></script>
+  <script type="text/javascript" src="crypto.js"></script>
+  <script type="text/javascript" src="evaluator.js"></script>
+  <script type="text/javascript" src="fonts.js"></script>
+  <script type="text/javascript" src="glyphlist.js"></script>
+  <script type="text/javascript" src="image.js"></script>
+  <script type="text/javascript" src="metrics.js"></script>
+  <script type="text/javascript" src="parser.js"></script>
+  <script type="text/javascript" src="pattern.js"></script>
+  <script type="text/javascript" src="stream.js"></script>
+  <script type="text/javascript" src="worker.js"></script>
+  <script type="text/javascript" src="jpgjs/jpg.js"></script>
+  <script type="text/javascript" src="jpx.js"></script>
+  <script type="text/javascript" src="jbig2.js"></script>
+
+  <script type="text/javascript">
+    // Specify the main script used to create a new PDF.JS web worker.
+    // In production, change this to point to the combined `pdf.js` file.
+    PDFJS.workerSrc = 'worker_loader.js';
+  </script>
+  <script type="text/javascript" src="hello.js"></script>
+</head>
+
+<body>
+<canvas id="the-canvas" style="border:1px solid black;"/>
+</body>
+
+</html>

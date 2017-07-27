@@ -1,0 +1,142 @@
+<html>
+<head>
+     <base href="<?=base_url();?>" />
+     <!--<link rel="stylesheet" type="text/css" href="css/print3.css" media="screen, projection" />-->
+    
+</head>
+<body>
+<table border="1" cellpadding="0" cellspacing="0" width="700"height="425" id="table"> 
+   <tr>
+       <td>
+	
+	<table border="0" cellpadding="0" cellspacing="0" width="100%" height="425" >
+	    <tr>
+		
+		<td  width="600" height="400">
+		   
+		     <table border="0" cellpadding="0" cellspacing="0" width="100%" height="100%">
+				<tr>
+				    <td colspan="4" >
+		   			 <div >
+					<img width="100%"  src="<?=base_url();?>/images/bbk1.png">
+		    			</div>
+				    </td>
+				</tr>
+				<tr>
+       			   	    <td colspan="4" height="80"><?=$this->judul;?></td>
+				    
+				</tr>
+				<tr>
+       			   	    <td width="150" height="40"><font size="2">&nbsp;&nbsp;<b>Sudah Terima dari</b></td>
+				    <td width="5" height="40"><font size="2"><div >:</div></td>
+				    <td colspan="2" height="40"><font size="2">&nbsp;<?=$nama_pembayar;?></td>
+				    
+				</tr>
+				<tr>
+       			   	    <td width="150" height="40"><font size="2">&nbsp;&nbsp;<b>Banyaknya Uang</b></td>
+				    <td width="5" height="50"><font size="2"><div >:</div></td>
+				    <td colspan="2" height="40"><font size="2">&nbsp;<?=convertNilaiToKalimat($nilai_bayar);?></td>
+				    
+				</tr>
+			        <tr>
+       			   	    <td width="150" height="40"><font size="2"">&nbsp;&nbsp;<b>Untuk Pembayaran</b></td>
+				    <td width="5" height="40"><font size="2"><div >:</div></td>
+				    <td colspan="2" height="40"><font size="2">&nbsp;<?=$tujuan_pembayaran;?></td>
+				    
+				</tr>
+				<tr>
+       			   	    <td colspan="3"></td>
+				    <td align="center" width="200" valign="bottom"><font size="2">Pontianak,
+					<?=tgl_indo(date($tgl_bayar));?> <br>Bendahara Penerima PNBP
+				    </td>
+				</tr>
+				<tr>
+       			   	    <td width="600" colspan="3"><font size="2">&nbsp;&nbsp;
+					Jumlah Rp. &nbsp;&nbsp;&nbsp;<input type="text" 
+					disabled="true" value="<?=number_format($nilai_bayar);?>">
+					
+				    </td>				   
+				    <td align="center" width="200" valign="bottom" height="90"><b><u><font size="1"><?=$nama_penerima;?></u>
+					<br><font size="1"><?=$nip_penerima;?></td>
+				</tr>
+		     </table>
+
+			
+ 
+
+		    
+		</td>		
+	    </tr>
+	</table>
+</td></tr>
+</table>
+<br>
+<br>
+<table border="1" cellpadding="0" cellspacing="0" width="700"height="425" id="table"> 
+   <tr>
+       <td>
+	
+	<table border="0" cellpadding="0" cellspacing="0" width="100%" height="425" >
+	    <tr>
+		
+		<td  width="600" height="400">
+		   
+		     <table border="0" cellpadding="0" cellspacing="0" width="100%" height="100%">
+				<tr>
+				    <td colspan="4" >
+		   			 <div >
+					<img width="100%"  src="<?=base_url();?>/images/bbk1.png">
+		    			</div>
+				    </td>
+				</tr>
+				<tr>
+       			   	    <td colspan="4" height="80"><?=$this->judul;?></td>
+				    
+				</tr>
+				<tr>
+       			   	    <td width="150" height="40"><font size="2">&nbsp;&nbsp;<b>Sudah Terima dari</b></td>
+				    <td width="5" height="40"><font size="2"><div >:</div></td>
+				    <td colspan="2" height="40"><font size="2">&nbsp;<?=$nama_pembayar;?></td>
+				    
+				</tr>
+				<tr>
+       			   	    <td width="150" height="40"><font size="2">&nbsp;&nbsp;<b>Banyaknya Uang</b></td>
+				    <td width="5" height="50"><font size="2"><div >:</div></td>
+				    <td colspan="2" height="40"><font size="2">&nbsp;<?=convertNilaiToKalimat($nilai_bayar);?></td>
+				    
+				</tr>
+			        <tr>
+       			   	    <td width="150" height="40"><font size="2"">&nbsp;&nbsp;<b>Untuk Pembayaran</b></td>
+				    <td width="5" height="40"><font size="2"><div >:</div></td>
+				    <td colspan="2" height="40"><font size="2">&nbsp;<?=$tujuan_pembayaran;?></td>
+				    
+				</tr>
+				<tr>
+       			   	    <td colspan="3"></td>
+				    <td align="center" width="200" valign="bottom"><font size="2">Pontianak,
+					<?=tgl_indo(date($tgl_bayar));?> <br>Bendahara Penerima PNBP
+				    </td>
+				</tr>
+				<tr>
+       			   	    <td width="600" colspan="3"><font size="2">&nbsp;&nbsp;
+					Jumlah Rp. &nbsp;&nbsp;&nbsp;<input type="text" 
+					disabled="true" value="<?=number_format($nilai_bayar);?>">
+					
+				    </td>				   
+				    <td align="center" width="200" valign="bottom" height="90"><b><u><font size="1"><?=$nama_penerima;?></u>
+
+					<br><font size="1"><?=$nip_penerima;?></td>
+				</tr>
+		     </table>
+
+			
+ 
+
+		    
+		</td>		
+	    </tr>
+	</table>
+</td></tr>
+</table>
+</body>
+</html>

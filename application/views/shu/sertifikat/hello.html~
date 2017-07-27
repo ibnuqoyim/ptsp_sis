@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+
+<head>
+  <!-- In production, only one script (pdf.js) is necessary -->
+  <!-- In production, change the content of PDFJS.workerSrc below -->
+  <script type="text/javascript" src="js/pdfjs/src/core.js"></script>
+  <script type="text/javascript" src="js/pdfjs/src/util.js"></script>
+  <script type="text/javascript" src="js/pdfjs/src/api.js"></script>
+  <script type="text/javascript" src="js/pdfjs/src/canvas.js"></script>
+  <script type="text/javascript" src="js/pdfjs/src/obj.js"></script>
+  <script type="text/javascript" src="js/pdfjs/src/function.js"></script>
+  <script type="text/javascript" src="js/pdfjs/src/charsets.js"></script>
+  <script type="text/javascript" src="js/pdfjs/src/cidmaps.js"></script>
+  <script type="text/javascript" src="js/pdfjs/src/colorspace.js"></script>
+  <script type="text/javascript" src="js/pdfjs/src/crypto.js"></script>
+  <script type="text/javascript" src="js/pdfjs/src/evaluator.js"></script>
+  <script type="text/javascript" src="js/pdfjs/src/fonts.js"></script>
+  <script type="text/javascript" src="js/pdfjs/src/glyphlist.js"></script>
+  <script type="text/javascript" src="js/pdfjs/src/image.js"></script>
+  <script type="text/javascript" src="js/pdfjs/src/metrics.js"></script>
+  <script type="text/javascript" src="js/pdfjs/src/parser.js"></script>
+  <script type="text/javascript" src="js/pdfjs/src/pattern.js"></script>
+  <script type="text/javascript" src="js/pdfjs/src/stream.js"></script>
+  <script type="text/javascript" src="js/pdfjs/src/worker.js"></script>
+  <script type="text/javascript" src="js/pdfjs/external/jpgjs/jpg.js"></script>
+  <script type="text/javascript" src="js/pdfjs/src/jpx.js"></script>
+  <script type="text/javascript" src="js/pdfjs/src/jbig2.js"></script>
+
+  <script type="text/javascript">
+    // Specify the main script used to create a new PDF.JS web worker.
+    // In production, change this to point to the combined `pdf.js` file.
+    PDFJS.workerSrc = 'js/pdfjs/src/worker_loader.js';
+  </script>
+  <!--<script type="text/javascript" src="hello.js"></script> -->
+</head>
+
+<body>
+  <canvas id="the-canvas" style="border:1px solid black;"/>
+</body>
+
+</html>

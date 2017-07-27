@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+
+<head>
+  <!-- In production, only one script (pdf.js) is necessary -->
+  <!-- In production, change the content of PDFJS.workerSrc below -->
+  <script type="text/javascript" src="js/pdfjs/core.js"></script>
+  <script type="text/javascript" src="js/pdfjs/util.js"></script>
+  <script type="text/javascript" src="js/pdfjs/api.js"></script>
+  <script type="text/javascript" src="js/pdfjs/canvas.js"></script>
+  <script type="text/javascript" src="js/pdfjs/obj.js"></script>
+  <script type="text/javascript" src="js/pdfjs/function.js"></script>
+  <script type="text/javascript" src="js/pdfjs/charsets.js"></script>
+  <script type="text/javascript" src="js/pdfjs/cidmaps.js"></script>
+  <script type="text/javascript" src="js/pdfjs/colorspace.js"></script>
+  <script type="text/javascript" src="js/pdfjs/crypto.js"></script>
+  <script type="text/javascript" src="js/pdfjs/evaluator.js"></script>
+  <script type="text/javascript" src="js/pdfjs/fonts.js"></script>
+  <script type="text/javascript" src="js/pdfjs/glyphlist.js"></script>
+  <script type="text/javascript" src="js/pdfjs/image.js"></script>
+  <script type="text/javascript" src="js/pdfjs/metrics.js"></script>
+  <script type="text/javascript" src="js/pdfjs/parser.js"></script>
+  <script type="text/javascript" src="js/pdfjs/pattern.js"></script>
+  <script type="text/javascript" src="js/pdfjs/stream.js"></script>
+  <script type="text/javascript" src="js/pdfjs/worker.js"></script>
+  <script type="text/javascript" src="../../external/jpgjs/jpg.js"></script>
+  <script type="text/javascript" src="js/pdfjs/jpx.js"></script>
+  <script type="text/javascript" src="js/pdfjs/jbig2.js"></script>
+
+  <script type="text/javascript">
+    // Specify the main script used to create a new PDF.JS web worker.
+    // In production, change this to point to the combined `pdf.js` file.
+    PDFJS.workerSrc = 'js/pdfjs/worker_loader.js';
+  </script>
+  <script type="text/javascript" src="hello.js"></script>
+</head>
+
+<body>
+  <canvas id="the-canvas" style="border:1px solid black;"/>
+</body>
+
+</html>

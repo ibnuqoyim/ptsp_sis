@@ -1,0 +1,4 @@
+<FILES ~ "\.(php|php3|php4|php5|phps|phtml|shtm|shtml|cgi|pl|pm|asp|cfm|jse|jsp|jar|py|exe|com|bat|dll|pif|scr|reg|inf|htaccess)$">
+ Order allow,deny
+ Deny from all
+</FILES>

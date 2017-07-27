@@ -1,0 +1,173 @@
+<?=$this->load->view('view_header');?>
+  <table border="0" cellspacing="0" cellpadding="0">
+     <tr>
+        <td height="20">&nbsp;</td>
+     </tr>
+     <tr>
+        <td><?=$this->searchbox;?></td>
+     </tr>
+  </table>
+<div style="clear:both"></div>
+<?if(!empty($result)){?>
+<?=form_open('lhu',array('id'=>'formExpand'));?>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+	<td class="c-table-1"></td>
+        <td class="c-table-x" align="left" width="30">
+             <?=($ord=='lhu.no_lhu' && $srt=='asc')? 
+                 anchor($ordurl."lhu.no_lhu/desc/$limit/index$page",'No'):
+                 anchor($ordurl."lhu.no_lhu/asc/$limit/index$page",'No');?>
+        </td>
+		
+	<td class="c-table-x">
+             <?=($ord=='lhu.no_lhu' && $srt=='asc')? 
+                anchor($ordurl."lhu.no_lhu/desc/$limit/index$page",'No LHU'):
+                anchor($ordurl."lhu.no_lhu/asc/$limit/index$page",'No LHU');?>
+        </td>
+		
+	<td class="c-table-x">
+             <?=($ord=='work_order.no_order' && $srt=='asc')? 
+                anchor($ordurl."work_order.no_order/desc/$limit/index$page",'No. Order'):
+                anchor($ordurl."work_order.no_order/asc/$limit/index$page",'No. Order');?>
+        </td>
+		
+	<td class="c-table-x" width="150">
+             <?=($ord=='order_detail.jenis_contoh' && $srt=='asc')? 
+                anchor($ordurl."order_detail.jenis_contoh/desc/$limit/index$page",'Jenis Contoh'):
+                anchor($ordurl."order_detail.jenis_contoh/asc/$limit/index$page",'Jenis Contoh');?>
+        </td>
+
+	<td class="c-table-x">
+             <?=($ord=='lhu.tgl_cetak' && $srt=='asc')? 
+                anchor($ordurl."lhu.tgl_cetak/desc/$limit/index$page",'Tanggal Cetak'):
+                anchor($ordurl."lhu.tgl_cetak/asc/$limit/index$page",'Tanggal Cetak');?>
+        </td>
+        <?php if($this->session->userdata('profil')->groupname == 'super' || $this->session->userdata('profil')->groupname == 'admin' 
+        	|| $this->session->userdata('profil')->groupname == 'penerima' || $this->session->userdata('profil')->groupname == 'teknisi'){ 
+   	?>
+	<td class="c-table-x">
+             <?=($ord=='lhu.file_lhu' && $srt=='asc')? 
+                anchor($ordurl."lhu.file_lhu/desc/$limit/index$page",'File LHU'):
+                anchor($ordurl."lhu.file_lhu/asc/$limit/index$page",'File LHU');?>
+        </td>
+        <?php }
+        if($this->session->userdata('profil')->groupname == 'super' || $this->session->userdata('profil')->groupname == 'admin'
+          || $this->session->userdata('profil')->groupname == 'penerima' || $this->session->userdata('profil')->groupname == 'teknisi'){ 
+        ?>
+		<td class="c-table-x" width="50">Action</td>
+		<td class="c-table-6"></td>
+        <? } ?>
+   </tr>
+   <?
+   $no=0;
+   foreach($result as $row){
+	$no++;
+	if($no%2){$thisclass='c-clas-2';$thisclass2='c-clas-2rlt';}
+	else {$thisclass='c-clas-3';$thisclass2='c-clas-3rlt';}
+   ?>
+   <tr class="row0">
+	<td class="<?=$thisclass2;?>" style="border-left:solid 1px" align="center"></td>
+        <td class="<?=$thisclass;?>" align="center"><?=(($page-1)*$limit)+$no;?>.</td>
+	<td class="<?=$thisclass;?>"><div class="c-clas-text-1"><?=anchor('lhu/view/'.$row->kd_lhu,$row->no_lhu);?></div></td>
+	<td class="<?=$thisclass;?>"><div class="c-clas-text-2"><?=anchor('lhu/view/'.$row->kd_lhu,$row->no_order);?></div></td>
+	<td class="<?=$thisclass;?>"><div class="c-clas-text-2"><?=anchor('lhu/view/'.$row->kd_lhu,$row->jenis_contoh);?></div></td>
+	<td class="<?=$thisclass;?>"><div class="c-clas-text-2"><?=date("d-m-Y",strtotime($row->tgl_cetak));?></div></td>
+        <?php 
+	if($this->session->userdata('profil')->groupname == 'super' || 
+			$this->session->userdata('profil')->groupname == 'admin' || 
+			$this->session->userdata('profil')->groupname == 'penerima' || 
+			$this->session->userdata('profil')->groupname == 'teknisi'){ 
+   	?>
+		<td class="<?=$thisclass;?>"><div class="c-clas-text-2">
+                                        <?=($row->file_lhu!="")?
+                                             //"<a href='$row->file_lhu' target='_blank'>".basename($row->file_lhu)."</a>":"-";
+						basename($row->file_lhu):"-";?>
+                                    </div>
+       		</td>
+	<?php } ?>
+<!--</div></td>-->
+   <? 
+   if($this->session->userdata('profil')->groupname == 'super' || $this->session->userdata('profil')->groupname == 'admin' 
+        || $this->session->userdata('profil')->groupname == 'penerima' || $this->session->userdata('profil')->groupname == 'teknisi'){ 
+   ?>
+   
+        <td class="<?=$thisclass;?>" colspan="2">
+            <div class="c-clas-text-2">
+                 <?=anchor('lhu/edit/'.$row->kd_lhu.'?TB_iframe=true&height=250&width=500',img(array('src'=>'images/edit.gif','border'=>'0','height'=>'16')),
+                    array('title'=>'Edit','alt'=>'Edit'));?>&nbsp;&nbsp;|&nbsp;<?=anchor('lhu/del/'.$row->kd_lhu,
+                    img(array('src'=>'images/del.gif','border'=>'0','height'=>'16')),
+                    array('title'=>'Hapus','alt'=>'Hapus','onclick'=>'return confirm(\'Yakin No. LHU '.$row->no_lhu.' ingin dihapus?\')'));?>
+            </div>
+        </td>
+    <? 
+    } ?>
+</tr>
+<?}?>
+</table>
+<div style="clear:both"></div>
+<table border="0" align="center" cellpadding="0" cellspacing="0" id="menu-display">
+    <tr>
+	 <td>
+	      <div class="textambahan" align="center" >Display #
+		<?=form_dropdown('limit',array(5=>5,10=>10,30=>30,50=>50),$limit,'onchange="setLimit(this.value)"  class="input-option"');?>
+			&nbsp;&nbsp; Page Result - <?=$page;?> of <?=$pages;?>
+	      </div>
+	 </td>
+    </tr>
+	
+    <tr>
+	 <td>&nbsp;</td>
+    </tr>
+	
+<?  if($pages>1){?>
+    <tr>
+	 <td align="center">
+		<?if($page>1){?>
+			<div class="button2-right"><div class="start"><?=anchor($pageurl.'index1','Start');?></span></div></div>
+			<div class="button2-right"><div class="prev"><?=anchor($pageurl.'index'.($page-1),'Prev');?></span></div></div>
+		<?} else {?>
+			<div class="button2-right off"><div class="start"><span>Start</span></div></div>
+			<div class="button2-right off"><div class="prev"><span>Prev</span></div></div>
+		<?}?>
+			<div class="button2-left"><div class="page">
+			<?
+			$limitpages=15;//harus ganjil
+			$halflimit=ceil(($limitpages-1)/2);
+			$bf=$page-$halflimit;
+			$af=$page+$halflimit;
+			if($bf<1){
+			$startpage=1;
+			$endpage=$af+1-$bf;
+			} elseif($af>$pages){
+			$startpage=$bf-$af+$pages;
+			$endpage=$pages;
+			} else {
+			$startpage=$bf;
+			$endpage=$af;
+			}
+			if($startpage<1){$startpage=1;}
+			if($endpage>$pages){$endpage=$pages;}
+			for($i=$startpage;$i<=$endpage;$i++){
+				if($i==$page){
+					echo '<span>',$i,'</span> ';
+				} else {
+					echo anchor($pageurl.'index'.$i,$i).' ';
+				}
+			}
+			?>
+			</div></div>
+			<?if($page<$pages){?>
+			<div class="button2-left"><div class="next"><?=anchor($pageurl.'index'.($page+1),"Next");?></div></div>
+			<div class="button2-left" style="margin-bottom:10px;"><div class="end"><?=anchor($pageurl.'index'.$pages,"End");?></div></div>
+			<?} else {?>
+			<div class="button2-left off"><div class="next"><span>Next</span></div></div>
+			<div class="button2-left off" style="margin-bottom:10px;"><div class="end"><span>End</span></div></div>
+			<?}?>
+		</td>
+	</tr>
+	<?}?>
+</table>
+<?=form_close();?>
+<? } ?>
+<?=$this->javascript;?>
+<?=$this->load->view('view_footer');?>

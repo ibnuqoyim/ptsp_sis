@@ -1,0 +1,370 @@
+body
+{
+	margin: 0;
+	padding: 0;
+	color: #555;
+	font: normal 10pt Arial,Helvetica,sans-serif;
+	background: #EFEFEF;
+}
+
+#page
+{
+	margin-top: 5px;
+	margin-bottom: 5px;
+	background: white;
+	border: 1px solid #C9E0ED;
+}
+
+#header
+{
+	margin: 0;
+	padding: 0;
+	border-top: 3px solid #C9E0ED;
+}
+
+#content
+{
+    padding: 10px;
+}
+
+#sidebar
+{
+	padding: 20px 20px 20px 0;
+}
+
+#footer
+{
+	padding: 10px;
+	margin: 10px 20px;
+	font-size: 0.8em;
+	text-align: center;
+	border-top: 1px solid #C9E0ED;
+}
+
+#logo
+{
+	height:60px;
+	padding: 10px 20px;
+	background:url('../images/header1.jpg') no-repeat left top;
+}
+
+#logo .title2 {
+	font-size: 200%;
+	margin-left:138px;
+}
+
+#mainmenu
+{
+	background:white url(bg.gif) repeat-x left top;
+}
+
+#mainmenu ul
+{
+	padding:6px 20px 5px 20px;
+	margin:0px;
+}
+
+#mainmenu ul li
+{
+	display: inline;
+}
+
+#mainmenu ul li a
+{
+	color:#ffffff;
+	background-color:transparent;
+	font-size:12px;
+	font-weight:bold;
+	text-decoration:none;
+	padding:5px 8px;
+}
+
+#mainmenu ul li a:hover, #mainmenu ul li.active a
+{
+	color: #6399cd;
+	background-color:#EFF4FA;
+	text-decoration:none;
+}
+
+div.flash-error, div.flash-notice, div.flash-success
+{
+	padding:.8em;
+	margin-bottom:1em;
+	border:2px solid #ddd;
+}
+
+div.flash-error
+{
+	background:#FBE3E4;
+	color:#8a1f11;
+	border-color:#FBC2C4;
+}
+
+div.flash-notice
+{
+	background:#FFF6BF;
+	color:#514721;
+	border-color:#FFD324;
+}
+
+div.flash-success
+{
+	background:#E6EFC2;
+	color:#264409;
+	border-color:#C6D880;
+}
+
+div.flash-error a
+{
+	color:#8a1f11;
+}
+
+div.flash-notice a
+{
+	color:#514721;
+}
+
+div.flash-success a
+{
+	color:#264409;
+}
+
+div.form .rememberMe label
+{
+	display: inline;
+}
+
+div.view
+{
+	padding: 10px;
+	margin: 10px 0;
+	border: 1px solid #C9E0ED;
+}
+
+div.breadcrumbs
+{
+	font-size: 0.9em;
+	padding: 5px 20px;
+}
+
+div.breadcrumbs span
+{
+	font-weight: bold;
+}
+
+div.search-form
+{
+	padding: 10px;
+	margin: 10px 0;
+	background: #eee;
+}
+
+.portlet
+{
+
+}
+
+.portlet-decoration
+{
+	padding: 3px 8px;
+	background: #B7D6E7;
+	border-left: 5px solid #6FACCF;
+}
+
+.portlet-title
+{
+	font-size: 12px;
+	font-weight: bold;
+	padding: 0;
+	margin: 0;
+	color: #298dcd;
+}
+
+.portlet-content
+{
+	font-size:0.9em;
+	margin: 0 0 15px 0;
+	padding: 5px 8px;
+	background:#EFFDFF;
+}
+
+.portlet-content ul
+{
+	list-style-image:none;
+	list-style-position:outside;
+	list-style-type:none;
+	margin: 0;
+	padding: 0;
+}
+
+.portlet-content li
+{
+	padding: 2px 0 4px 0px;
+}
+
+.operations
+{
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+.operations li
+{
+	padding-bottom: 2px;
+}
+
+.operations li a
+{
+	font: bold 12px Arial;
+	color: #0066A4;
+	display: block;
+	padding: 2px 0 2px 8px;
+	line-height: 15px;
+	text-decoration: none;
+}
+
+.operations li a:visited
+{
+	color: #0066A4;
+}
+
+.operations li a:hover
+{
+	background: #80CFFF;
+}
+
+/* = STEPS CONTAINER
+----------------------------*/
+.steptitle {
+    font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size:18px;
+	color:#666;
+    font-weight: bold;
+}
+.wizard-steps {
+    margin:5px 10px 50px 10px;
+    padding:0px;
+    position: relative;
+    clear:both;
+    font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: bold;
+}
+.wizard-steps div {
+    position:relative;
+}
+/* = STEP NUMBERS
+----------------------------*/
+.wizard-steps span {
+    display: block;
+    float: left;
+    font-size: 10px;
+    text-align:center;
+    width:15px;
+    margin: 2px 5px 0px 0px;
+    line-height:15px;
+    color: #ccc;
+    background: #FFF;
+    border: 2px solid #CCC;
+    -webkit-border-radius:10px;
+    -moz-border-radius:10px;
+    border-radius:10px;
+}
+/* = DEFAULT STEPS
+----------------------------*/
+.wizard-steps a {
+    position:relative;
+    display:block;
+    width:auto;
+    height:24px;
+    margin-right: 18px;
+    padding:0px 10px 0px 3px;
+    float: left;
+    font-size:11px;
+    line-height:24px;
+    color:#666;
+    background: #F0EEE3;
+    text-decoration:none;
+    text-shadow:1px 1px 1px rgba(255,255,255, 0.8);
+}
+.wizard-steps a:before {
+    width:0px;
+    height:0px;
+    border-top: 12px solid #F0EEE3;
+    border-bottom: 12px solid #F0EEE3;
+    border-left:12px solid transparent;
+    position: absolute;
+    content: "";
+    top: 0px;
+    left: -12px;
+}
+.wizard-steps a:after {
+    width: 0;
+    height: 0;
+    border-top: 12px solid transparent;
+    border-bottom: 12px solid transparent;
+    border-left:12px solid #F0EEE3;
+    position: absolute;
+    content: "";
+    top: 0px;
+    right: -12px;
+}
+ 
+/* = COMPLETED STEPS
+----------------------------*/
+ 
+.wizard-steps .completed-step a {
+    color:#163038;
+    background: #A3C1C9;
+}
+.wizard-steps .completed-step a:before {
+    border-top: 12px solid #A3C1C9;
+    border-bottom: 12px solid #A3C1C9;
+}
+.wizard-steps .completed-step a:after {
+    border-left: 12px solid #A3C1C9;
+}
+.wizard-steps .completed-step span {
+    border: 2px solid #163038;
+    color: #163038;
+    text-shadow:none;
+}
+/* = ACTIVE STEPS
+----------------------------*/
+.wizard-steps .active-step a {
+    color:#A3C1C9;
+    background: #163038;
+    text-shadow:1px 1px 1px rgba(0,0,0, 0.8);
+}
+.wizard-steps .active-step a:before {
+    border-top: 12px solid #163038;
+    border-bottom: 12px solid #163038;
+}
+.wizard-steps .active-step a:after {
+    border-left: 12px solid #163038;
+}
+.wizard-steps .active-step span {
+    color: #163038;
+    -webkit-box-shadow:0px 0px 2px rgba(0,0,0, 0.8);
+    -moz-box-shadow:0px 0px 2px rgba(0,0,0, 0.8);
+    box-shadow:0px 0px 2px rgba(0,0,0, 0.8);
+    text-shadow:none;
+    border: 2px solid #A3C1C9;
+}
+/* = HOVER STATES
+----------------------------*/
+.wizard-steps .completed-step:hover a, .wizard-steps .active-step:hover a {
+    color:#fff;
+    background: #8F061E;
+    text-shadow:1px 1px 1px rgba(0,0,0, 0.8);
+}
+.wizard-steps .completed-step:hover span, .wizard-steps .active-step:hover span {
+    color:#8F061E;
+}
+.wizard-steps .completed-step:hover a:before, .wizard-steps .active-step:hover a:before {
+    border-top: 12px solid #8F061E;
+    border-bottom: 12px solid #8F061E;
+}
+.wizard-steps .completed-step:hover a:after, .wizard-steps .active-step:hover a:after {
+    border-left: 12px solid #8F061E;
+}
